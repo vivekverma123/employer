@@ -3,15 +3,15 @@
 <div class="outer">
     
     <div class="left"> 
-        <img src ="../../images/logo.png">
+        <img src ="../../../images/logo.png">
     </div>
 
     <div class="right">
-        <a href="<?php echo base_url() ?>index.php/Auth/register"><button class="btn">Register as an Employer</button></a><br>
-        <a href="<?php echo base_url() ?>index.php/Auth/INFregister"><button class="btn">Create an INF</button></a><br>
-        <a href="<?php echo base_url() ?>index.php/Auth/JNFregister"><button class="btn">Create a JNF</button></a><br>
-        <a href="<?php echo base_url() ?>index.php/Auth/reportslots"><button class="btn">View the Slots for placements</button></a><br>
-        <a href="<?php echo base_url() ?>index.php/Auth/load_applications"><button class="btn">View Applicants</button></a><br>
+        <a href="<?php echo base_url() ?>index.php/cdc/Auth/register"><button class="btn">Register as an Employer</button></a><br>
+        <a href="<?php echo base_url() ?>index.php/cdc/Auth/INFregister"><button class="btn">Create an INF</button></a><br>
+        <a href="<?php echo base_url() ?>index.php/cdc/Auth/JNFregister"><button class="btn">Create a JNF</button></a><br>
+        <a href="<?php echo base_url() ?>index.php/cdc/Auth/reportslots"><button class="btn">View the Slots for placements</button></a><br>
+        <a href="<?php echo base_url() ?>index.php/cdc/Auth/load_applications"><button class="btn">View Applicants</button></a><br>
     </div>
 </div>
 

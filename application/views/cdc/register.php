@@ -19,7 +19,7 @@
   				<div class="card-header">
     				<div class="fw-bold">Employer Registration</div>
   				</div>
-  				<form action="<?php echo base_url().'index.php/Auth/register'?>" name="registerForm" id="registerForm" method="post">
+  				<form action="<?php echo base_url().'index.php/cdc/Auth/register'?>" name="registerForm" id="registerForm" method="post">
 	  				<div class="card-body register">
 	    			<p class="card-text">Fill your details</p>
 	    				<div class="form-group">

@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>JNF</title>
+	<title>INF</title>
  	
 	<link rel="stylesheet" href="<?php echo base_url().'assets/css/bootstrap.css'?>">
 	<link rel="stylesheet" href="<?php echo base_url().'assets/css/style.css'?>">
@@ -12,16 +12,16 @@
 			if($msg!=""){
 				echo "<div class='alert alert-success'>$msg</div>";
 			}
+
 		?>
 		<div class="col-md-10">
 			<div class="card mt-4">
   				<div class="card-header">
-    				<div class="fw-bold">JNF</div>
+    				<div class="fw-bold">INF</div>
   				</div>
-  				<form action="<?php echo base_url().'index.php/Auth/JNFregister'?>" name="registerForm" id="registerForm" method="post">
+  				<form action="<?php echo base_url().'index.php/cdc/Auth/INFregister'?>" name="registerForm" id="registerForm" method="post">
 	  				<div class="card-body register">
 	    			<p class="card-text">Please fill the details</p>
-	    				
 
 	    				<div class="form-group">
 	    					<label for="name">Employee ID</label>
@@ -48,21 +48,21 @@
                         </div>
 
                         <div class="form-group">
-	    					<label for="name">CTC</label>
-	    					<input type="text" name="ctc" id="ctc" value="<?php echo set_value('ctc')?>" class="form-control <?php echo (form_error('ctc') !="") ? "is-invalid":'';?>" placeholder="CTC in lacs">
-	    					<p class="invalid-feedback"><?php echo strip_tags(form_error('ctc'));?></p>
+	    					<label for="name">Stipend</label>
+	    					<input type="text" name="stipend" id="stipend" value="<?php echo set_value('stipend')?>" class="form-control <?php echo (form_error('stipend') !="") ? "is-invalid":'';?>" placeholder="stipend">
+	    					<p class="invalid-feedback"><?php echo strip_tags(form_error('stipend'));?></p>
                         </div>
 
                         <div class="form-group">
-	    					<label for="name">CTC Breakdown</label>
-	    					<input type="text" name="ctc_break" id="ctc_break" value="<?php echo set_value('ctc_break')?>" class="form-control <?php echo (form_error('ctc_break') !="") ? "is-invalid":'';?>" placeholder="CTC Breakdown">
-	    					<p class="invalid-feedback"><?php echo strip_tags(form_error('ctc_break'));?></p>
+	    					<label for="name">Duration in weeks</label>
+	    					<input type="text" name="duration_weeks" id="duration_weeks" value="<?php echo set_value('duration_weeks')?>" class="form-control <?php echo (form_error('duration_weeks') !="") ? "is-invalid":'';?>" placeholder="duration in weeks">
+	    					<p class="invalid-feedback"><?php echo strip_tags(form_error('duration_weeks'));?></p>
                         </div>
                         
                         <div class="form-group">
-	    					<label for="name">Bond Details</label>
-	    					<input type="text" name="bond" id="bond" value="<?php echo set_value('bond')?>" class="form-control <?php echo (form_error('bond') !="") ? "is-invalid":'';?>" placeholder="Bond Details">
-	    					<p class="invalid-feedback"><?php echo strip_tags(form_error('bond'));?></p>
+	    					<label for="name">Resume Shortlist?</label>
+	    					<input type="text" name="resume_shortlist" id="resume_shortlist" value="<?php echo set_value('resume_shortlist')?>" class="form-control <?php echo (form_error('resume_shortlist') !="") ? "is-invalid":'';?>" placeholder="Resume Shortlist">
+	    					<p class="invalid-feedback"><?php echo strip_tags(form_error('resume_shortlist'));?></p>
                         </div>
 
 						<h3> 4-Year Bachelor of Technology - Admitted through JEE Advanced </h3>
@@ -174,12 +174,6 @@
 						?>
                         
                         <div class="form-group">
-	    					<label for="name">Resume Shortlist?</label>
-	    					<input type="text" name="resume_shortlist" id="resume_shortlist" value="<?php echo set_value('resume_shortlist')?>" class="form-control <?php echo (form_error('resume_shortlist') !="") ? "is-invalid":'';?>" placeholder="Resume Shortlist">
-	    					<p class="invalid-feedback"><?php echo strip_tags(form_error('resume_shortlist'));?></p>
-                        </div>
-                        
-                        <div class="form-group">
 	    					<label for="name">Type of Test</label>
 	    					<input type="text" name="type_of_test" id="type_of_test" value="<?php echo set_value('type_of_test')?>" class="form-control <?php echo (form_error('type_of_test') !="") ? "is-invalid":'';?>" placeholder="Type of Test">
 	    					<p class="invalid-feedback"><?php echo strip_tags(form_error('type_of_test'));?></p>
@@ -198,15 +192,27 @@
                         </div>
                         
                         <div class="form-group">
-	    					<label for="name">GPA</label>
+	    					<label for="name">GPA Criteria</label>
 	    					<input type="text" name="gpa" id="gpa" value="<?php echo set_value('gpa')?>" class="form-control <?php echo (form_error('gpa') !="") ? "is-invalid":'';?>" placeholder="GPA">
 	    					<p class="invalid-feedback"><?php echo strip_tags(form_error('gpa'));?></p>
                         </div>
 
                         <div class="form-group">
-	    					<label for="name">Female Only? (Y/N)</label>
+	    					<label for="name">Female Only (Y/N)</label>
 	    					<input type="text" name="female_only" id="female_only" value="<?php echo set_value('female_only')?>" class="form-control <?php echo (form_error('female_only') !="") ? "is-invalid":'';?>" placeholder="Female Only">
 	    					<p class="invalid-feedback"><?php echo strip_tags(form_error('female_only'));?></p>
+                        </div>
+
+						<div class="form-group">
+	    					<label for="name">PPO Offer</label>
+	    					<input type="text" name="ppo_offered" id="ppo_offered" value="<?php echo set_value('ppo_offered')?>" class="form-control <?php echo (form_error('ppo_offered') !="") ? "is-invalid":'';?>" placeholder="ppo offered">
+	    					<p class="invalid-feedback"><?php echo strip_tags(form_error('ppo_offered'));?></p>
+                        </div>
+
+						<div class="form-group">
+	    					<label for="name">CTC in LPA</label>
+	    					<input type="text" name="ctc_lpa" id="ctc_lpa" value="<?php echo set_value('ctc_lpa')?>" class="form-control <?php echo (form_error('ctc_lpa') !="") ? "is-invalid":'';?>" placeholder="ctc in lpa">
+	    					<p class="invalid-feedback"><?php echo strip_tags(form_error('ctc_lpa'));?></p>
                         </div>
 
 	    				<div class="form-group">

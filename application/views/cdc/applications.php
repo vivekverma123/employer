@@ -113,7 +113,7 @@ $(document).ready(function() {
         var y = "0";
         //console.log(x);
 
-        $.post("<?php echo base_url() ?>index.php/Auth/set_data",
+        $.post("<?php echo base_url() ?>index.php/cdc/Auth/set_data",
         {
             emp_id: x,
             param: y
@@ -137,7 +137,7 @@ $(document).ready(function() {
         //console.log(x);
         var y = "1";
 
-        $.post("<?php echo base_url() ?>index.php/Auth/set_data",
+        $.post("<?php echo base_url() ?>index.php/cdc/Auth/set_data",
         {
             emp_id: x,
             param: y
@@ -156,7 +156,7 @@ $(document).ready(function() {
 function view(role_id)
 {
     //console.log(role_id);
-    $.post("<?php echo base_url() ?>index.php/Auth/set_data2",
+    $.post("<?php echo base_url() ?>index.php/cdc/Auth/set_data2",
         {
             role_id: role_id
         },

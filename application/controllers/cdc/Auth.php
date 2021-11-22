@@ -7,7 +7,7 @@ class Auth extends CI_Controller
 {
 	public function dashboard()
 	{
-		$this->load->view('dashboard');
+		$this->load->view('cdc/dashboard');
 		
 	}
 
@@ -31,14 +31,14 @@ class Auth extends CI_Controller
 			/**
 			 * Loads register page view in case of form validation rules not followed
 			*/
-	        $this->load->view('register');
+	        $this->load->view('cdc/register');
 		}
 		else
 		{	
 			/**
 			 * Loads Auth_model model in case form validation rules are followed
 			*/
-			$this->load->model('Auth_model');
+			$this->load->model('cdc/Auth_model');
 			$formArray=array();
 			$formArray['user_id']=$this->input->post('emp_id',true);
 			$formArray['password']=$this->input->post('password',true);
@@ -54,7 +54,7 @@ class Auth extends CI_Controller
 			$this->Auth_model->userCreate($formArray);
 			$this->Auth_model->employerCreate($formArray1);
 			$this->session->set_flashdata('msg','Accout Created Successfully');
-			redirect(base_url().'index.php/Auth/register');
+			redirect(base_url().'index.php/cdc/Auth/register');
 		}
 	}
 
@@ -89,14 +89,14 @@ class Auth extends CI_Controller
 			/**
 			 * Loads register page view in case of form validation rules not followed
 			*/
-	        $this->load->view('jnf',$data);
+	        $this->load->view('cdc/jnf',$data);
 		}
 		else
 		{	
 			/**
 			 * Loads Auth_model model in case form validation rules are followed
 			*/
-			$this->load->model('Auth_model');
+			$this->load->model('cdc/Auth_model');
 			$formArray=array();
 			//$formArray['job_id']=$this->input->post('job_id',true);
 			$formArray['emp_id']=$this->input->post('emp_id',true);
@@ -116,6 +116,7 @@ class Auth extends CI_Controller
 			$formArray['no_of_offers']=$this->input->post('offers',true);
 			$formArray['gpa']=$this->input->post('gpa',true);
 			$formArray['female_only']=$this->input->post('female_only',true);
+			$formArray['approved']='N';
 
 			$check = $_POST['check'];
 
@@ -131,7 +132,7 @@ class Auth extends CI_Controller
 			$this->Auth_model->jnfCreate($formArray);
 
 			$this->session->set_flashdata('msg','JNF Created Successfully');
-			redirect(base_url().'index.php/Auth/JNFregister');
+			redirect(base_url().'index.php/cdc/Auth/JNFregister');
 		}
 	}
 
@@ -173,14 +174,14 @@ class Auth extends CI_Controller
 			/**
 			 * Loads register page view in case of form validation rules not followed
 			*/
-	        $this->load->view('inf',$data);
+	        $this->load->view('cdc/inf',$data);
 		}
 		else
 		{	
 			/**
 			 * Loads Auth_model model in case form validation rules are followed
 			*/
-			$this->load->model('Auth_model');
+			$this->load->model('cdc/Auth_model');
 			$formArray=array();
 
 			//$formArray['intern_id']=$this->input->post('intern_id',true);
@@ -201,6 +202,7 @@ class Auth extends CI_Controller
 			$formArray['female_only']=$this->input->post('female_only',true);
 			$formArray['ppo_offered']=$this->input->post('ppo_offered',true);
 			$formArray['ctc_lpa']=$this->input->post('ctc_lpa',true);
+			$formArray['approved']='N';
 
 			$check = $_POST['check'];
 
@@ -213,28 +215,28 @@ class Auth extends CI_Controller
 			$this->Auth_model->infCreate($formArray);
 
 			$this->session->set_flashdata('msg','INF Created Successfully');
-			redirect(base_url().'index.php/Auth/INFregister');
+			redirect(base_url().'index.php/cdc/Auth/INFregister');
 		}
 	}
 
 
 	public function reportslots(){
-		$this->load->model("Auth_model");
+		$this->load->model("cdc/Auth_model");
 		$data["fetch_data_slots"] = $this->Auth_model->fetch_data_slots();
-		$this->load->view('getslots',$data);
+		$this->load->view('cdc/getslots',$data);
 	}
 	
 	//Returns record from course_branch with matching course_id
 	public function get_data1($branch_id)
 	{
-		$this->load->model("Auth_model");
+		$this->load->model("cdc/Auth_model");
 		return $this->Auth_model->course_branch($branch_id);
 	}
 
 	///Returns all branches from table cs_branches
 	public function get_data2()
 	{
-		$this->load->model("Auth_model");
+		$this->load->model("cdc/Auth_model");
 		$data = $this->Auth_model->fetch_branch();
 		return $data;
 		
@@ -243,7 +245,7 @@ class Auth extends CI_Controller
 	//Fetches all required data for view application
 	public function load_applications()
 	{
-		$this->load->model("Auth_model");
+		$this->load->model("cdc/Auth_model");
 		if(isset($_SESSION['emp_id']))
 		{
 			$emp_id = $_SESSION['emp_id'];
@@ -260,11 +262,11 @@ class Auth extends CI_Controller
 				$data['app'] = $this->Auth_model->get_applicants($_SESSION['role_id']);
 				//print_r($data['app']);
 			}
-			$this->load->view("applications",$data);
+			$this->load->view("cdc/applications",$data);
 		}
 		else
 		{
-			$this->load->view("applications");
+			$this->load->view("cdc/applications");
 		}
 	}
 
@@ -278,7 +280,7 @@ class Auth extends CI_Controller
 	//Sets required role_id into session array
 	public function set_data2()
 	{
-		$this->load->model("Auth_model");
+		$this->load->model("cdc/Auth_model");
 		$_SESSION['role_id'] = $_POST['role_id'];
 		$role_id = $_POST['role_id'];
 		$app = $this->Auth_model->get_applicants($role_id);
